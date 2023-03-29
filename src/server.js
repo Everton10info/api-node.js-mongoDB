@@ -2,7 +2,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 require("dotenv").config();
-require("./models/product")
+require("../models/product")
 
 const app = express();
 const Product = mongoose.model("Product")
@@ -35,4 +35,4 @@ app.post('/p',async (req,res)=>{
 
 app.listen(3001);
 
-require ("./data_base/db_conection")
+require ("../data_base/db_conection")
