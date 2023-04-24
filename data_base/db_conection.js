@@ -1,8 +1,11 @@
 const { default: mongoose } = require("mongoose");
 
 const mongose = require("mongoose");
+require("dotenv").config();
 const dbUser = process.env.DB_USER;
 const dbPass = process.env.DB_PASS;
+
+
 
 const connect = ()=> {
     mongoose.connect(`mongodb+srv://bestfood:pamela@cluster0.crzbuip.mongodb.net/test?retryWrites=true&w=majority`);
