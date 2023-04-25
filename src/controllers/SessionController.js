@@ -1,7 +1,7 @@
 const jwt =require('jsonwebtoken');
-
 const mongoose = require("mongoose");
 const User = mongoose.model("User")
+const crypto = require("crypto-js");
 
 
 
@@ -15,14 +15,17 @@ module.exports = {
     const {email,password} =req.body;
 
     var user = await User.findOne({email:email});
-   
+    
     if(!user){
          return res.status(401).json({error: 'Usuário não existe!'});
       }
 
-     
+   
+      var bytes  = crypto.AES.decrypt(user.password, 'dragon food');
+      var decryptedPassword = JSON.parse(bytes.toString(crypto.enc.Utf8));
 
-      if(user.password!= password){
+
+      if(decryptedPassword!= password){
         return res.status(401).json({error: 'Senha incorreta!'});
       }
 

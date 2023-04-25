@@ -1,21 +1,32 @@
 const mongoose = require("mongoose")
 const User = mongoose.model("User")
+const crypto = require("crypto-js");
 
 
 module.exports = {
   async showUsers(req, res) {
-    const user = await User.find();
-    return res.json(user)
+    const users = await User.find();
+    return res.json(users)
   },
 
   async createUser(req, res) {
- const userExists = await User.findOne({where:{email:req.body.email}});
 
-  if(userExists){
-       return res.status(400).json({error: 'Usuário já existe!'})
+    var { name, email, password } = req.body;
+
+    var user = await User.findOne({ email: email });
+
+    if (user) {
+      return res.status(400).json({ error: 'Usuário já existe!' })
     }
-    const user = await User.create(req.body);
-    return (res.json(user));
+
+    var passwordEncrypt = crypto.AES.encrypt(JSON.stringify(password), 'dragon food').toString();
+
+    
+    password = passwordEncrypt;
+
+
+    const userNew = await User.create({ name, email, password });
+    return (res.json(userNew));
   },
 
   async deleteUser(req, res) {

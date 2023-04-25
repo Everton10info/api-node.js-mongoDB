@@ -6,13 +6,14 @@ const SessionController  = require("./controllers/SessionController");
 const UserController = require("./controllers/UserController");
 
 routes.get("/products", ProductController.showProducts);
-routes.post("/products", ProductController.createProduct );
+routes.post("/product", ProductController.createProduct );
 routes.delete("/product/:id",ProductController.deleteProduct);
 
 routes.get("/users", UserController.showUsers);
 routes.post("/user",UserController.createUser);
+routes.delete("/user/:id",UserController.deleteUser);
 
-routes.post("/sessions", SessionController.store);
+routes.post("/session", SessionController.store);
 
 
 

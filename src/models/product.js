@@ -1,31 +1,30 @@
+
 const mongoose = require("mongoose");
 
 const ProductSchema = new mongoose.Schema({
-    title:{
+    title: {
         type: String,
         require: true
     },
-   description:{
+    description: {
         type: String,
-        require:true,
-        
-    },   /*
-    local:{
-        type:String,
-        require:true,
     },
-     price:{
-        type: Int16Array,
+    ingredients: {
+        type: String,
+    },
+    local: {
+        type: String,
+    },
+    price: {
+        type: Number,
         reuired: true,
+    },
+    urlImage: {
+        type: String,
 
-     },
-
-     urlImage:{
-        type:String,
-        require: true
-     }*/
+    }
 
 })
-;
+    ;
 
 mongoose.model("Product", ProductSchema)

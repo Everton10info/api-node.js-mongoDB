@@ -2,8 +2,8 @@ const { default: mongoose } = require("mongoose");
 
 const mongose = require("mongoose");
 require("dotenv").config();
-const dbUser = process.env.DB_USER;
-const dbPass = process.env.DB_PASS;
+const dbUser = process.env.USER;
+const dbPass = process.env.PASS;
 
 
 

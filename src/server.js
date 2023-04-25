@@ -9,9 +9,6 @@ const routes = require('./routes');
 const app = express();
 app.use(express.json());
 
-//const Product = mongoose.model("Product")
-//const User = mongoose.model("User")
-
 app.use("/api", routes);
 
 
