@@ -2,9 +2,10 @@ const jwt =require('jsonwebtoken');
 const mongoose = require("mongoose");
 const User = mongoose.model("User")
 const crypto = require("crypto-js");
+const envii = require("dotenv").config();
 
-
-
+const secretToken = process.env.secretToken; 
+const secretCrypto = process.env.secretCrypto; 
 
 
 
@@ -21,7 +22,7 @@ module.exports = {
       }
 
    
-      var bytes  = crypto.AES.decrypt(user.password, 'dragon food');
+      var bytes  = crypto.AES.decrypt(user.password, secretCrypto);
       var decryptedPassword = JSON.parse(bytes.toString(crypto.enc.Utf8));
 
 
@@ -34,7 +35,7 @@ module.exports = {
     return res.json({
         user:{
           id,email,
-        }, token: jwt.sign({id},'deusnocomando',{expiresIn:'1d',},),
+        }, token: jwt.sign({id},secretToken,{expiresIn:'1d',},),
       })
 
 

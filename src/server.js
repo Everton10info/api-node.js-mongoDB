@@ -14,4 +14,4 @@ app.use("/api", routes);
 
 app.listen(3001);
 
-require("../data_base/db_conection")
+require("./data_base/db_conection")
