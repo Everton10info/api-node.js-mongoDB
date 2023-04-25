@@ -12,7 +12,11 @@ routes.use(authMiddleware.auth);
 
 routes.get("/products", ProductController.showProducts);
 routes.post("/product", ProductController.createProduct );
+routes.post("/dailyDeal", ProductController.createDailyDeal );
 routes.delete("/product/:id",ProductController.deleteProduct);
+//routes.delete("/product",ProductController.deleteProduct);
+
+
 
 routes.get("/users", UserController.showUsers);
 routes.delete("/user/:id",UserController.deleteUser);

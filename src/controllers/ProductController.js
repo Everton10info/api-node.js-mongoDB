@@ -12,9 +12,14 @@ module.exports = {
     const product = await Product.create(req.body);
     return (res.json(product));
   },
+  async createDailyDeal(req, res) {
+    const product = await Product.create(req.body);
+    return (res.json(product));
+  },
 
   async deleteProduct(req, res) {
     await Product.findByIdAndRemove(req.params.id)
+   //await Product.deleteMany();
     return res.send()
   }
 }

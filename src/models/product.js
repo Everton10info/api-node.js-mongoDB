@@ -6,21 +6,31 @@ const ProductSchema = new mongoose.Schema({
         type: String,
         require: true
     },
+    category: {
+        type: String,
+        require: true
+    },
     description: {
-        type: String,
-    },
-    ingredients: {
-        type: String,
-    },
-    local: {
-        type: String,
+        type: String
     },
     price: {
         type: Number,
-        reuired: true,
+        require: true
     },
-    urlImage: {
+    local: {
         type: String,
+        require:true
+    },
+    ingredients: {
+        type: String
+    },
+    deliveryPrice: {
+        type: Number,
+        require:true
+    },
+
+    urlImage: {
+        type: String
 
     }
 
