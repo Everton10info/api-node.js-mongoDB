@@ -13,12 +13,6 @@ module.exports = {
     return res.json(product)
   },
 
-
-  async showDailyDeal(req, res) {
-    const product = await Product.find({ category: req.params.dailyDeal });
-    return res.json(product)
-  },
-
   async createProduct(req, res) {
     const product = await Product.create(req.body);
     return (res.json(product));

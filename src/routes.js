@@ -7,12 +7,11 @@ const UserController = require("./controllers/UserController");
 
 routes.post("/session", SessionController.store);
 routes.post("/user",UserController.createUser);
+routes.get("/products", ProductController.showProducts);
 
 routes.use(authMiddleware.auth);
 
-routes.get("/products", ProductController.showProducts);
 routes.get("/products/:category", ProductController.showCategory);
-routes.get("/products/:dailyDeal", ProductController.showDailyDeal);
 routes.post("/product", ProductController.createProduct );
 routes.post("/dailyDeal", ProductController.createDailyDeal );
 routes.delete("/product/:id",ProductController.deleteProduct);
