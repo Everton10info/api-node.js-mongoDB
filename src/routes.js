@@ -11,6 +11,7 @@ routes.post("/user",UserController.createUser);
 routes.use(authMiddleware.auth);
 
 routes.get("/products", ProductController.showProducts);
+routes.get("/products/:category", ProductController.showCategory);
 routes.post("/product", ProductController.createProduct );
 routes.post("/dailyDeal", ProductController.createDailyDeal );
 routes.delete("/product/:id",ProductController.deleteProduct);

@@ -8,6 +8,11 @@ module.exports = {
     return res.json(product)
   },
 
+  async showCategory(req, res) {
+    const product = await Product.find({ category: req.params.category });
+    return res.json(product)
+  },
+
   async createProduct(req, res) {
     const product = await Product.create(req.body);
     return (res.json(product));
@@ -19,7 +24,7 @@ module.exports = {
 
   async deleteProduct(req, res) {
     await Product.findByIdAndRemove(req.params.id)
-   //await Product.deleteMany();
+    //await Product.deleteMany();
     return res.send()
   }
 }
