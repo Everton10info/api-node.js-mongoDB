@@ -8,7 +8,7 @@ const UserController = require("./controllers/UserController");
 routes.post("/session", SessionController.store);
 routes.post("/user",UserController.createUser);
 routes.get("/products", ProductController.showProducts);
-app.get('/verify-login', authMiddleware.loginIn);
+routes.get("/verify-login", authMiddleware.loginIn);
 
 routes.use(authMiddleware.auth);
 
