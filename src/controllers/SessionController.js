@@ -35,11 +35,11 @@ module.exports = {
     return res.json({
         user:{
           id,email,
-        }, token: jwt.sign({id},secretToken, {expiresIn:"50s",},),
+        }, token: jwt.sign({id},secretToken, {expiresIn:"20d"},),
       })
 
 
-      
+    
   },
 
 
